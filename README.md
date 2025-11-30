@@ -30,4 +30,4 @@ You can start developing by editing the files inside the **app** directory. This
 To learn more about developing your project with Expo, look at the following resources:
 
 - [AppWrite(BasS)](https://appwrite.io/):Open source for storing search and retention data
-- [TMBD(API_Movie)]https://www.themoviedb.org/: Api có mã nguồn về movie
+- [TMBD(API_Movie)](https://www.themoviedb.org/): Api has source code about movie
