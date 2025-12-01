@@ -31,7 +31,7 @@ const Sign_up = () => {
           <Text className="text-gray-500 font-bold ">
             Don&apos;t have an account?
           </Text>
-          <Link href={"/(auth)/sign_up"} asChild>
+          <Link href={"/(auth)/sign_in"} asChild>
             <TouchableOpacity className="mb-7">
               <Text className="text-blue-500 font-bold "> Sign up</Text>
             </TouchableOpacity>

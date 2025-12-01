@@ -35,13 +35,6 @@ const MovieDetails = () => {
         popularity: movie.popularity,
         video: movie.video,
         vote_count: movie.vote_count,
-        // movie: {
-        //   searchTerm: "",
-        //   movie_id: movie.id,
-        //   title: movie.title,
-        //   count: 0,
-        //   poster_url: movie.poster_path!,
-        // } as TrendingMovie,
       };
       toggleSave(movieToSave);
     }

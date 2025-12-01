@@ -17,7 +17,7 @@ const Saved = () => {
       />
 
       <View className="flex-1 px-5 z-10 pt-10">
-        <Text className="text-white font-bold text-2xl mb-4">
+        <Text className="text-white font-bold text-xl mb-4">
           Saved Movies ({savedMovies.length})
         </Text>
 
@@ -31,7 +31,12 @@ const Saved = () => {
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => <MovieCard {...item} />}
             numColumns={3}
-            columnWrapperStyle={{ justifyContent: "space-between" }}
+            columnWrapperStyle={{
+              justifyContent: "space-between",
+              gap: 20,
+              paddingRight: 5,
+              marginBottom: 10,
+            }}
             contentContainerStyle={{ paddingBottom: 100 }}
             showsVerticalScrollIndicator={false}
           />
