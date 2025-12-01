@@ -1,4 +1,6 @@
 import TrendingList from "@/components/TredingList";
+import { icons } from "@/constants/icons";
+import { images } from "@/constants/images";
 import { ms } from "@/constants/screen-dimensions";
 import { getTrendingMovies } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
@@ -10,15 +12,16 @@ const Profile = () => {
 
   return (
     <View className="flex-1 bg-primary ">
+      <Image source={images.bg} className="absolute w-full z-0" />
       <View className="flex-row justify-between px-5 mt-10 pb-6">
         <Text className="text-white text-xl font-bold ">Profile</Text>
-        <Image />
+        <Image source={icons.setting} className="w-8 h-8 " />
       </View>
       <ScrollView
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 80 }}
       >
-        <View className="justify-center items-center">
+        <View className="justify-center items-center mt-2">
           <Image
             source={require("@/assets/images/person.png")}
             style={{ height: ms(150), width: ms(150) }}

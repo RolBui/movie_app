@@ -19,7 +19,7 @@ const Sign_up = () => {
         />
 
         <TouchableOpacity
-          className="py-3.5 px-4 bg-blue-600 self-stretch items-center rounded-md mb-5"
+          className="py-3.5 px-4 bg-accent self-stretch items-center rounded-md mb-5"
           onPress={() => {
             router.push("/(tabs)");
           }}
@@ -33,7 +33,7 @@ const Sign_up = () => {
           </Text>
           <Link href={"/(auth)/sign_up"} asChild>
             <TouchableOpacity className="mb-7">
-              <Text className="text-blue-500 font-bold ">Sign up</Text>
+              <Text className="text-blue-500 font-bold "> Sign up</Text>
             </TouchableOpacity>
           </Link>
         </View>

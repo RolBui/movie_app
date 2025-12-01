@@ -1,5 +1,7 @@
 import apple from "@/assets/icons/apple-logo.png";
 import arrow from "@/assets/icons/arrow.png";
+import checksave from "@/assets/icons/Saved.png";
+import setting from "@/assets/icons/cogwheel.png";
 import mail from "@/assets/icons/email.png";
 import gg from "@/assets/icons/Google.png";
 import home from "@/assets/icons/home.png";
@@ -22,4 +24,6 @@ export const icons = {
   mail,
   gg,
   apple,
+  setting,
+  checksave,
 };

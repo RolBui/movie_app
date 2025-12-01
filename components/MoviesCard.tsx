@@ -22,6 +22,7 @@ const MoviesCard = ({
           className="w-full h-52 rounded-lg"
           resizeMode="cover"
         />
+
         <Text className="text-sm font-bold text-white mt-2" numberOfLines={1}>
           {title}
         </Text>

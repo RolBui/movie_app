@@ -13,7 +13,7 @@ interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
-  movie: TrendingMovie;
+  // movie: TrendingMovie;
 }
 
 interface TrendingMovie {
@@ -83,4 +83,10 @@ interface SingleCardProps {
 
 interface LoginButtonProps {
   emailHref: Href<string | object>;
+}
+
+interface SavedMovieProps {
+  savedMovies: Movie[];
+  toggleSave: (movie: Movie) => void;
+  isMovieSaved: (id: string) => boolean;
 }

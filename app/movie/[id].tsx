@@ -3,11 +3,50 @@ import { icons } from "@/constants/icons";
 import { fetchMoviesDetails } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { router, useLocalSearchParams } from "expo-router";
+
+import { useSavedMovies } from "@/components/SavedMoviesContext";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 const MovieDetails = () => {
   const { id } = useLocalSearchParams();
   const { data: movie } = useFetch(() => fetchMoviesDetails(id as string));
+
+  const { toggleSave, isMovieSaved } = useSavedMovies();
+  const isSaved = isMovieSaved(id as string);
+
+  const handleToggleSaved = () => {
+    if (movie) {
+      if (!movie.poster_path || !movie.release_date) {
+        console.warn("movie cant be saved");
+        return;
+      }
+      const movieToSave: Movie = {
+        id: movie.id,
+        title: movie.title,
+        poster_path: movie.poster_path!,
+        vote_average: movie.vote_average,
+        release_date: movie.release_date.substring(0, 4),
+        adult: movie.adult,
+        backdrop_path: movie.backdrop_path!,
+        genre_ids: movie.genres.map((g) => g.id),
+        original_language: movie.original_language,
+        original_title: movie.original_title,
+        overview: movie.overview!,
+        popularity: movie.popularity,
+        video: movie.video,
+        vote_count: movie.vote_count,
+        // movie: {
+        //   searchTerm: "",
+        //   movie_id: movie.id,
+        //   title: movie.title,
+        //   count: 0,
+        //   poster_url: movie.poster_path!,
+        // } as TrendingMovie,
+      };
+      toggleSave(movieToSave);
+    }
+  };
+
   return (
     <View className="bg-primary flex-1">
       <ScrollView
@@ -15,7 +54,7 @@ const MovieDetails = () => {
           paddingBottom: 80,
         }}
       >
-        <View>
+        <View className="relative">
           <Image
             source={{
               uri: `https://image.tmdb.org/t/p/w500${movie?.poster_path}`,
@@ -24,8 +63,23 @@ const MovieDetails = () => {
             resizeMode="stretch"
           />
 
+          <View className="flex-col justify-center items-center ">
+            <TouchableOpacity
+              className="absolute top-6 right-7 w-7 h-7"
+              onPress={handleToggleSaved}
+            >
+              <Image
+                source={icons.checksave}
+                className="w-full h-full"
+                tintColor={isSaved ? "#FFD700" : "white"}
+              />
+            </TouchableOpacity>
+          </View>
+
           <View className="flex-col items-start justify-center mt-5 px-5 ">
-            <Text className="text-white font-bold text-xl">{movie?.title}</Text>
+            <Text className=" text-white font-bold text-xl">
+              {movie?.title}
+            </Text>
             <View className="flex-row items-center gap-x-2 mt-2">
               <Text className="text-sm text-light-200">
                 {movie?.release_date}
